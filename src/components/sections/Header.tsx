@@ -24,29 +24,45 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); 
+      setIsScrolled(window.scrollY > 50);
 
-      let currentSection = "";
+      let currentNavItemHref = ""; // Default to no section active
+
+      // Determine current section based on scroll position
+      // Iterate from bottom-most section upwards to find the one most "in view"
       for (let i = navItems.length - 1; i >= 0; i--) {
         const item = navItems[i];
-        const section = document.querySelector(item.href) as HTMLElement;
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          if (window.scrollY >= sectionTop - sectionHeight / 2 && window.scrollY < sectionTop + sectionHeight / 2) {
-            currentSection = item.href;
-            break; 
+        const sectionElement = document.querySelector(item.href) as HTMLElement;
+        if (sectionElement) {
+          const sectionTop = sectionElement.offsetTop;
+          const sectionHeight = sectionElement.offsetHeight;
+          // A section is considered active if the scroll position is within a range around its middle point
+          if (window.scrollY >= sectionTop - sectionHeight / 2 &&
+              window.scrollY < sectionTop + sectionHeight / 2) {
+            currentNavItemHref = item.href;
+            break; // Found the current section
           }
         }
       }
-      if (!currentSection && window.scrollY < 200) currentSection = "#hero"; 
-      setActiveSection(currentSection);
+
+      // Priority override: If at the very top of the page, #hero is active
+      if (window.scrollY < 50) { // 50px threshold from the top
+        currentNavItemHref = "#hero";
+      }
+      // Fallback: If no section was identified by the loop AND still near the top (but not at the very top)
+      else if (!currentNavItemHref && window.scrollY < 200) {
+        currentNavItemHref = "#hero";
+      }
+      // If currentNavItemHref is still "", it means no section is decisively active by these rules,
+      // and we're not near the top. setActiveSection("") will clear any active highlight.
+
+      setActiveSection(currentNavItemHref);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); 
+    handleScroll(); // Call on mount to set initial state
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, []); // Empty dependency array ensures this runs once on mount and cleans up on unmount
 
   const NavLinks = ({ onItemClick }: { onItemClick?: () => void }) => (
     <>
@@ -57,11 +73,11 @@ export default function Header() {
           asChild
           className={cn(
             "text-sm font-medium transition-all duration-200 ease-in-out transform hover:scale-110 hover:text-primary",
-            activeSection === item.href 
-              ? "text-primary font-semibold border-b-2 border-primary scale-105" 
+            activeSection === item.href
+              ? "text-primary font-semibold border-b-2 border-primary scale-105"
               : "text-muted-foreground dark:text-slate-300",
             "dark:hover:text-primary dark:data-[active=true]:text-primary",
-            "px-3 py-2 md:px-4" 
+            "px-3 py-2 md:px-4"
           )}
           data-active={activeSection === item.href}
           onClick={() => {
