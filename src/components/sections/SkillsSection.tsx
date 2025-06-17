@@ -25,7 +25,6 @@ export default function SkillsSection() {
               
               const items = currentRef.querySelectorAll('.motion-reveal-item');
               items.forEach((item, index) => {
-                // Use transitionDelay for .motion-reveal-item as it uses CSS transitions
                 (item as HTMLElement).style.transitionDelay = `${index * 100}ms`;
                 item.classList.add('revealed');
               });
@@ -50,13 +49,13 @@ export default function SkillsSection() {
       <div className="container mx-auto px-4">
         <h2 className="section-title font-headline motion-reveal motion-reveal-fadeinup">My Skills</h2>
         <p className="section-subtitle motion-reveal motion-reveal-fadeinup" style={{ animationDelay: '100ms' }}>
-          A showcase of my technical expertise, tools I master, and methodologies I follow.
+          A showcase of my technical expertise and tools I master.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((category, catIndex) => (
             <div 
               key={category.name} 
-              className="motion-reveal-item h-full" // Simplified classes for card reveal
+              className="motion-reveal-item h-full"
             >
               <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-transparent hover:border-primary/30 rounded-lg h-full flex flex-col group">
                 <CardHeader className="text-center">
@@ -66,13 +65,17 @@ export default function SkillsSection() {
                   <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors duration-300">{category.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow pt-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <SkillBar 
-                      key={skill.name} 
-                      name={skill.name} 
-                      level={skill.level || 80} 
-                    />
-                  ))}
+                  {/* Skills will be displayed as a list of names */}
+                  <ul className="space-y-1">
+                    {category.skills.map((skill, skillIndex) => (
+                       <li key={skill.name} className="flex items-center">
+                         <SkillBar 
+                            name={skill.name} 
+                            level={skill.level || 0} // Level is not used for display but passed for consistency
+                          />
+                       </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             </div>
@@ -82,3 +85,4 @@ export default function SkillsSection() {
     </section>
   );
 }
+
