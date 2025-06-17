@@ -97,15 +97,16 @@ export default function HeroSection() {
             </div>
           </div>
           <div ref={imageRef} className="md:col-span-2 flex justify-center motion-reveal motion-reveal-scalein" style={{ animationDelay: '0.3s' }}>
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300 animate-subtleFloat">
+            <div className="group relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300">
               <Image
                 src="/images/96095 visa.jpg"
                 alt={name}
-                width={384} 
+                width={384}
                 height={384}
                 data-ai-hint="profile picture"
                 priority
               />
+              <div className="absolute inset-0 rounded-full vignette-overlay transition-opacity duration-300 ease-in-out"></div>
             </div>
           </div>
         </div>

@@ -146,6 +146,17 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Vignette effect for Hero Image */
+  .vignette-overlay {
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.7) 100%);
+    opacity: 0;
+    pointer-events: none; /* Allow clicks to pass through */
+  }
+
+  .group:hover .vignette-overlay {
+    opacity: 1;
+  }
 }
 
 html {
