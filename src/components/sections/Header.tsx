@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Briefcase, Code, Zap, MessageSquare, User, Award, HomeIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { resumeData } from "@/data/resume-data";
 
 const navItems = [
   { href: "#hero", label: "Home", icon: HomeIcon },
@@ -19,28 +20,26 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("#hero");
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const firstName = resumeData.contactInfo.name.split(' ')[0];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Trigger earlier for effect
+      setIsScrolled(window.scrollY > 50); 
 
       let currentSection = "";
-      // Iterate backwards to prioritize sections lower on the page if multiple are in view
       for (let i = navItems.length - 1; i >= 0; i--) {
         const item = navItems[i];
         const section = document.querySelector(item.href) as HTMLElement;
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
-          // Consider a section active if its top is within a range from the top of the viewport
-          // or if the viewport is within the section itself
           if (window.scrollY >= sectionTop - sectionHeight / 2 && window.scrollY < sectionTop + sectionHeight / 2) {
             currentSection = item.href;
             break; 
           }
         }
       }
-      if (!currentSection && window.scrollY < 200) currentSection = "#hero"; // Default to hero if near top
+      if (!currentSection && window.scrollY < 200) currentSection = "#hero"; 
       setActiveSection(currentSection);
     };
 
@@ -61,14 +60,12 @@ export default function Header() {
             activeSection === item.href 
               ? "text-primary font-semibold border-b-2 border-primary scale-105" 
               : "text-muted-foreground dark:text-slate-300",
-            "dark:hover:text-primary-foreground dark:data-[active=true]:text-primary-foreground",
+            "dark:hover:text-primary dark:data-[active=true]:text-primary",
             "px-3 py-2 md:px-4" 
           )}
           data-active={activeSection === item.href}
           onClick={() => {
             if (onItemClick) onItemClick();
-            // Manually update active section on click for immediate feedback
-            // setActiveSection(item.href); // This might be too aggressive if scroll handler is efficient
           }}
         >
           <Link href={item.href}>
@@ -84,13 +81,13 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        isScrolled ? "bg-background/90 backdrop-blur-lg shadow-lg dark:bg-background/80" : "bg-transparent dark:bg-transparent"
+        isScrolled ? "bg-background/90 backdrop-blur-lg shadow-lg dark:bg-popover/80" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="#hero" className="flex items-center gap-2 group">
           <Zap className="h-7 w-7 text-primary group-hover:text-accent transition-colors duration-300 group-hover:animate-pulseGlow" />
-          <span className="text-xl font-headline font-bold text-primary group-hover:text-accent transition-colors duration-300">MotionFolio</span>
+          <span className="text-xl font-headline font-bold text-primary group-hover:text-accent transition-colors duration-300">{firstName}</span>
         </Link>
         <nav className="hidden items-center space-x-1 md:flex">
           <NavLinks />
@@ -106,7 +103,7 @@ export default function Header() {
             <SheetContent side="right" className="w-[280px] bg-background p-6 dark:bg-popover">
               <Link href="#hero" className="flex items-center gap-2 mb-8" onClick={() => setIsSheetOpen(false)}>
                 <Zap className="h-7 w-7 text-primary" />
-                <span className="text-xl font-headline font-bold text-primary">MotionFolio</span>
+                <span className="text-xl font-headline font-bold text-primary">{firstName}</span>
               </Link>
               <nav className="flex flex-col space-y-3">
                  <NavLinks onItemClick={() => setIsSheetOpen(false)} />
