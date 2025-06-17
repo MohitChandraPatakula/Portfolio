@@ -11,17 +11,12 @@ export default function ExperienceSection() {
         <p className="section-subtitle">
           A journey through my professional roles and accomplishments, highlighting key contributions and growth.
         </p>
-        <div className="relative wrap overflow-hidden p-2 sm:p-5">
-          <div 
-            className="absolute border-opacity-20 border-gray-700 dark:border-gray-300 h-full border-2 border-dashed" 
-            style={{ left: '50%', borderColor: 'hsl(var(--primary)/0.3)' }}
-          ></div>
+        <div className="max-w-3xl mx-auto space-y-12">
           {experience.map((item, index) => (
             <TimelineItem 
               key={index} 
               item={item} 
-              isLeft={index % 2 !== 0} 
-              animationDelay={`${index * 100}ms`}
+              animationDelay={`${index * 150}ms`}
             />
           ))}
         </div>

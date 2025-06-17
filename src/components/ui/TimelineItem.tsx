@@ -7,11 +7,10 @@ import { cn } from "@/lib/utils";
 
 interface TimelineItemProps {
   item: Experience;
-  isLeft: boolean;
   animationDelay?: string;
 }
 
-export default function TimelineItem({ item, isLeft, animationDelay }: TimelineItemProps) {
+export default function TimelineItem({ item, animationDelay }: TimelineItemProps) {
   const itemRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,35 +38,34 @@ export default function TimelineItem({ item, isLeft, animationDelay }: TimelineI
     <div 
       ref={itemRef} 
       className={cn(
-        "motion-reveal mb-10 flex justify-between items-center w-full",
-        isLeft ? 'flex-row-reverse motion-reveal-fadeinup' : 'motion-reveal-fadeinup' // Example: different animation based on side
+        "motion-reveal motion-reveal-fadeinup w-full"
       )}
       style={{ animationDelay }}
     >
-      <div className="order-1 w-5/12"></div>
-      <div className={`z-20 flex items-center order-1 bg-gradient-to-br from-primary to-accent shadow-xl w-12 h-12 sm:w-14 sm:h-14 rounded-full transform group-hover:scale-110 transition-transform duration-300`}>
-        <Briefcase className="mx-auto font-semibold text-primary-foreground h-6 w-6 sm:h-7 sm:w-7" />
-      </div>
-      <div className={`order-1 w-5/12 px-2 py-4 sm:px-4`}>
-        <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300 border-transparent hover:border-primary/30 rounded-lg">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-xl lg:text-2xl font-headline text-primary">{item.role}</CardTitle>
-            <CardDescription className="font-semibold text-foreground">{item.company}</CardDescription>
-            <div className="flex items-center text-xs text-muted-foreground mt-1">
-              <CalendarDays className="h-3.5 w-3.5 mr-1.5" />
-              {item.dates}
+      <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300 border-transparent hover:border-primary/30 rounded-lg w-full">
+        <CardHeader className="pb-3">
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0 mt-1.5 p-3 flex items-center justify-center bg-gradient-to-br from-primary to-accent shadow-lg w-12 h-12 rounded-lg">
+              <Briefcase className="font-semibold text-primary-foreground h-6 w-6" />
             </div>
-          </CardHeader>
-          <CardContent>
-            <ul className="list-disc pl-5 space-y-1.5 text-sm text-muted-foreground">
-              {item.responsibilities.slice(0,3).map((responsibility, i) => ( // Show first 3 by default
-                <li key={i}>{responsibility}</li>
-              ))}
-              {item.responsibilities.length > 3 && <li className="text-xs text-accent hover:underline cursor-pointer">Show more...</li>}
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+            <div className="flex-grow">
+              <CardTitle className="text-xl lg:text-2xl font-headline text-primary">{item.role}</CardTitle>
+              <CardDescription className="font-semibold text-foreground">{item.company}</CardDescription>
+              <div className="flex items-center text-xs text-muted-foreground mt-1">
+                <CalendarDays className="h-3.5 w-3.5 mr-1.5" />
+                {item.dates}
+              </div>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="pt-2">
+          <ul className="list-disc pl-5 ml-2 space-y-1.5 text-sm text-muted-foreground">
+            {item.responsibilities.map((responsibility, i) => (
+              <li key={i}>{responsibility}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   );
 }

@@ -8,54 +8,56 @@ body {
 
 @layer base {
   :root {
-    --background: 210 60% 98%; /* Very light cool blue */
-    --foreground: 220 30% 20%; /* Dark grayish blue */
-    --card: 0 0% 100%;
-    --card-foreground: 220 30% 20%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 20%;
-    --primary: 190 70% 50%; /* Cyan-Teal */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 30% 90%; /* Light cool grey */
-    --secondary-foreground: 220 30% 20%;
-    --muted: 210 30% 90%;
-    --muted-foreground: 220 20% 50%;
-    --accent: 30 90% 55%; /* Bright Orange/Coral */
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 210 20% 85%; /* Softer cool border */
-    --input: 210 20% 85%;
-    --ring: 190 70% 50%;
-    --chart-1: 190 70% 50%;
-    --chart-2: 30 90% 55%;
-    --chart-3: 210 50% 60%;
-    --chart-4: 150 60% 50%;
-    --chart-5: 280 60% 65%;
-    --radius: 0.75rem; /* Slightly larger radius */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 220 25% 12%; /* Very dark cool blue - Applied from .dark */
+    --foreground: 210 30% 85%; /* Light grayish blue - Applied from .dark */
+    --card: 220 25% 15%; /* Applied from .dark */
+    --card-foreground: 210 30% 85%; /* Applied from .dark */
+    --popover: 220 25% 15%; /* Applied from .dark */
+    --popover-foreground: 210 30% 85%; /* Applied from .dark */
+    --primary: 190 65% 60%; /* Lighter Cyan-Teal - Applied from .dark */
+    --primary-foreground: 220 25% 15%; /* Darker text on lighter primary - Applied from .dark */
+    --secondary: 220 20% 20%; /* Dark cool grey - Applied from .dark */
+    --secondary-foreground: 210 30% 85%; /* Applied from .dark */
+    --muted: 220 20% 20%; /* Applied from .dark */
+    --muted-foreground: 210 30% 60%; /* Applied from .dark */
+    --accent: 30 85% 65%; /* Lighter Bright Orange/Coral - Applied from .dark */
+    --accent-foreground: 220 25% 15%; /* Darker text on lighter accent - Applied from .dark */
+    --destructive: 0 70% 50%; /* Applied from .dark */
+    --destructive-foreground: 0 0% 98%; /* Applied from .dark */
+    --border: 220 15% 30%; /* Applied from .dark */
+    --input: 220 15% 30%; /* Applied from .dark */
+    --ring: 190 65% 60%; /* Applied from .dark */
+    --chart-1: 190 65% 60%; /* Applied from .dark */
+    --chart-2: 30 85% 65%; /* Applied from .dark */
+    --chart-3: 210 45% 70%; /* Applied from .dark */
+    --chart-4: 150 55% 60%; /* Applied from .dark */
+    --chart-5: 280 55% 75%; /* Applied from .dark */
+    --radius: 0.75rem; 
+    --sidebar-background: 240 5.9% 10%; /* Applied from .dark */
+    --sidebar-foreground: 240 4.8% 95.9%; /* Applied from .dark */
+    --sidebar-primary: 224.3 76.3% 48%; /* Applied from .dark */
+    --sidebar-primary-foreground: 0 0% 100%; /* Applied from .dark */
+    --sidebar-accent: 240 3.7% 15.9%; /* Applied from .dark */
+    --sidebar-accent-foreground: 240 4.8% 95.9%; /* Applied from .dark */
+    --sidebar-border: 240 3.7% 15.9%; /* Applied from .dark */
+    --sidebar-ring: 217.2 91.2% 59.8%; /* Applied from .dark */
   }
+
+  /* Keep .dark consistent with :root for now, or define a light theme here if toggle is added */
   .dark {
-    --background: 220 25% 12%; /* Very dark cool blue */
-    --foreground: 210 30% 85%; /* Light grayish blue */
+    --background: 220 25% 12%; 
+    --foreground: 210 30% 85%; 
     --card: 220 25% 15%;
     --card-foreground: 210 30% 85%;
     --popover: 220 25% 15%;
     --popover-foreground: 210 30% 85%;
-    --primary: 190 65% 60%; /* Lighter Cyan-Teal */
+    --primary: 190 65% 60%; 
     --primary-foreground: 220 25% 15%;
-    --secondary: 220 20% 20%; /* Dark cool grey */
+    --secondary: 220 20% 20%; 
     --secondary-foreground: 210 30% 85%;
     --muted: 220 20% 20%;
     --muted-foreground: 210 30% 60%;
-    --accent: 30 85% 65%; /* Lighter Bright Orange/Coral */
+    --accent: 30 85% 65%; 
     --accent-foreground: 220 25% 15%;
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;

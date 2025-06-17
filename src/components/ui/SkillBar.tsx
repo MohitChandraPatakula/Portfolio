@@ -22,7 +22,7 @@ export default function SkillBar({ name, level, animationDelay }: SkillBarProps)
             observer.unobserve(currentRef);
           }
         },
-        { threshold: 0.5 } 
+        { threshold: 0.1 } // Lowered threshold for earlier animation trigger
       );
       observer.observe(currentRef);
       return () => {
@@ -38,13 +38,15 @@ export default function SkillBar({ name, level, animationDelay }: SkillBarProps)
       ref={barRef} 
       className={cn(
         "mb-4 motion-reveal motion-reveal-fadeinup",
-        isVisible ? "revealed" : ""
+        // The 'revealed' class for fadeInUp is handled by its own animation logic if needed,
+        // but SkillBar's primary animation is the bar filling up.
+        // isVisible here mainly controls the bar fill animation.
       )}
-      style={{ animationDelay }}
+      style={{ animationDelay }} // This delay is for the fadeInUp effect of the whole SkillBar item
     >
       <div className="flex justify-between mb-1.5">
-        <span className="text-base font-medium text-primary dark:text-primary-foreground font-body">{name}</span>
-        <span className="text-sm font-semibold text-accent dark:text-accent-foreground font-body">{level}%</span>
+        <span className="text-base font-medium text-primary dark:text-primary font-body">{name}</span>
+        <span className="text-sm font-semibold text-accent dark:text-accent font-body">{level}%</span>
       </div>
       <div className="w-full bg-secondary rounded-full h-5 dark:bg-muted shadow-inner overflow-hidden">
         <div

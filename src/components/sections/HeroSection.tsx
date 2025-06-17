@@ -64,7 +64,7 @@ export default function HeroSection() {
               {summary}
             </p>
             <div ref={buttonsRef} className="flex flex-wrap justify-center md:justify-start gap-4 mb-8 motion-reveal motion-reveal-fadeinup" style={{ animationDelay: '0.6s' }}>
-              <Button asChild variant="default" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-pulseGlow focus:animate-none">
+              <Button asChild variant="default" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:animate-none">
                 <Link href="#projects">
                   <Download className="mr-2 h-5 w-5" /> View My Work
                 </Link>
