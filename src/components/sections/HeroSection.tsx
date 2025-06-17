@@ -1,3 +1,4 @@
+
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -100,9 +101,9 @@ export default function HeroSection() {
               <Image
                 src="https://storage.googleapis.com/project-fabrica-dev/images/Y2hhdC1jb21wbGV0aW9uLWE2MDIxYzVjLWQ2ZTEtNGM5ZC1hYmFhLTk4ODAyZjdlNDdkMw==/image.png"
                 alt={name}
-                layout="fill"
-                objectFit="cover"
-                className="transform hover:scale-110 transition-transform duration-700 ease-in-out"
+                width={384} 
+                height={384} 
+                className="object-cover w-full h-full"
                 data-ai-hint="profile picture"
                 priority
               />
