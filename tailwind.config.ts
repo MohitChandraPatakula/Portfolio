@@ -103,6 +103,10 @@ export default {
         'pulseGlow': {
           '0%, 100%': { boxShadow: '0 0 0 0 hsl(var(--primary)/0.6)' },
           '50%': { boxShadow: '0 0 20px 8px hsl(var(--primary)/0.2)' },
+        },
+        'subtleFloat': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
         }
       },
       animation: {
@@ -112,6 +116,7 @@ export default {
         'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
         'scaleIn': 'scaleIn 0.6s ease-out forwards',
         'pulseGlow': 'pulseGlow 2.5s infinite ease-in-out',
+        'subtleFloat': 'subtleFloat 3s infinite ease-in-out',
       },
     },
   },

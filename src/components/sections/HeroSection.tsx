@@ -96,7 +96,7 @@ export default function HeroSection() {
             </div>
           </div>
           <div ref={imageRef} className="md:col-span-2 flex justify-center motion-reveal motion-reveal-scalein" style={{ animationDelay: '0.3s' }}>
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300 animate-subtleFloat">
               <Image
                 src="https://storage.googleapis.com/project-fabrica-dev/images/Y2hhdC1jb21wbGV0aW9uLWE2MDIxYzVjLWQ2ZTEtNGM5ZC1hYmFhLTk4ODAyZjdlNDdkMw==/image.png"
                 alt={name}
