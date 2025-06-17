@@ -7,6 +7,11 @@ import { resumeData } from "@/data/resume-data";
 import { Github, Linkedin, Mail, Phone, MapPin, Download, Sparkles } from "lucide-react";
 import { useEffect, useRef } from 'react';
 import { cn } from "@/lib/utils";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function HeroSection() {
   const { name, location, email, phone, linkedin, linkedinHandle, summary, github, githubHandle } = resumeData.contactInfo;
@@ -96,18 +101,32 @@ export default function HeroSection() {
               )}
             </div>
           </div>
-          <div ref={imageRef} className="md:col-span-2 flex justify-center motion-reveal motion-reveal-scalein group" style={{ animationDelay: '0.3s' }}>
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300">
-              <Image
-                src="/images/96095 visa.jpg" 
-                alt={name}
-                width={384}
-                height={384}
-                data-ai-hint="profile picture"
-                priority
-              />
-              <div className="absolute inset-0 rounded-full vignette-overlay transition-opacity duration-300 ease-in-out"></div>
-            </div>
+          <div ref={imageRef} className="md:col-span-2 flex justify-center motion-reveal motion-reveal-scalein" style={{ animationDelay: '0.3s' }}>
+            <Dialog>
+              <DialogTrigger asChild>
+                <div className="group relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300 cursor-pointer">
+                  <Image
+                    src="/images/96095 visa.jpg"
+                    alt={name}
+                    width={384}
+                    height={384}
+                    priority
+                    data-ai-hint="profile picture"
+                  />
+                  <div className="absolute inset-0 rounded-full vignette-overlay transition-opacity duration-300 ease-in-out"></div>
+                </div>
+              </DialogTrigger>
+              <DialogContent className="p-0 max-w-xl md:max-w-2xl lg:max-w-3xl bg-transparent border-none shadow-none">
+                <Image
+                  src="/images/96095 visa.jpg"
+                  alt={name + " - enlarged"}
+                  width={800}
+                  height={800}
+                  className="rounded-lg w-full h-auto"
+                  data-ai-hint="profile picture enlarged"
+                />
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
