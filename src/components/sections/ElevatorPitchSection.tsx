@@ -1,3 +1,4 @@
+
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -122,7 +123,7 @@ export default function ElevatorPitchSection() {
               </div>
             </CardContent>
             <CardFooter className="flex flex-col items-stretch gap-4">
-              <Button type="submit" disabled={isLoading} size="lg" className="w-full">
+              <Button type="submit" disabled={isLoading} size="lg" className="w-full hover:animate-pulseGlow">
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />

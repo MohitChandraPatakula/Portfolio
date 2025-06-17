@@ -1,3 +1,4 @@
+
 "use client";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,7 +108,7 @@ export default function ProjectCard({ project, animationDelay }: ProjectCardProp
         <CardFooter className="pt-4 mt-auto">
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" className="w-full group/button border-primary/30 hover:border-primary hover:bg-primary/10 text-primary hover:text-primary transition-all duration-300">
+              <Button variant="outline" className="w-full group/button border-primary/30 hover:border-primary hover:bg-primary/10 text-primary hover:text-primary transition-all duration-300 hover:animate-pulseGlow">
                 <Info className="mr-2 h-4 w-4 group-hover/button:text-accent transition-colors" /> Learn More
               </Button>
             </DialogTrigger>

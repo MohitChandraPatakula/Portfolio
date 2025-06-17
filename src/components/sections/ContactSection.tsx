@@ -1,3 +1,4 @@
+
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -122,7 +123,7 @@ export default function ContactSection() {
                 <Textarea id="message" {...register("message")} rows={5} placeholder="Hi Mohit, I'd like to discuss..." aria-invalid={errors.message ? "true" : "false"} className="focus:border-accent focus:ring-accent"/>
                 {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
               </div>
-              <Button type="submit" disabled={isLoading} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-transform duration-300 focus:ring-primary">
+              <Button type="submit" disabled={isLoading} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-transform duration-300 focus:ring-primary hover:animate-pulseGlow">
                 {isLoading ? (
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                 ) : (

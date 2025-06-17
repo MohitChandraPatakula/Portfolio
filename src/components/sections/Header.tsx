@@ -1,3 +1,4 @@
+
 "use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -63,9 +64,9 @@ export default function Header() {
           variant="ghost"
           asChild
           className={cn(
-            "text-sm font-medium transition-all duration-200 ease-in-out transform hover:scale-110 hover:text-primary",
+            "text-sm font-medium transition-all duration-200 ease-in-out transform hover:scale-110 hover:bg-primary/10 hover:text-primary hover:animate-pulseGlow",
             activeSection === item.href
-              ? "text-primary font-semibold border-b-2 border-primary scale-105"
+              ? "text-primary font-semibold border-b-2 border-primary scale-105 bg-primary/5"
               : "text-muted-foreground dark:text-slate-300",
             "dark:hover:text-primary dark:data-[active=true]:text-primary",
             "px-3 py-2 md:px-4"
@@ -92,12 +93,12 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        {/* Removed branding Link */}
-        <div className="flex-1 md:flex-none"></div> {/* Placeholder to help with spacing if needed, or adjust justify-content */}
+        
+        <div className="flex-1 md:flex-none"></div> 
         <nav className="hidden items-center space-x-1 md:flex">
           <NavLinks />
         </nav>
-        <div className="md:hidden ml-auto"> {/* Added ml-auto to push menu to the right if branding is removed */}
+        <div className="md:hidden ml-auto"> 
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="border-primary/50 text-primary hover:bg-primary/10">
@@ -106,7 +107,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background p-6 dark:bg-popover">
-              <div className="mb-8"> {/* Removed branding Link from sheet header */}
+              <div className="mb-8"> 
                 <span className="text-lg font-semibold text-primary">Menu</span>
               </div>
               <nav className="flex flex-col space-y-3">

@@ -65,12 +65,12 @@ export default function HeroSection() {
               {summary}
             </p>
             <div ref={buttonsRef} className="flex flex-wrap justify-center md:justify-start gap-4 mb-8 motion-reveal motion-reveal-fadeinup" style={{ animationDelay: '0.6s' }}>
-              <Button asChild variant="default" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <Button asChild variant="default" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:animate-pulseGlow">
                 <Link href="/images/Mohit_Chandra_Patakula_Resume.pdf" download="Mohit_Chandra_Patakula_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" /> View My Resume
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-primary/50 hover:bg-primary/10">
+              <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-primary/50 hover:bg-primary/10 hover:animate-pulseGlow">
                 <Link href="#contact">
                   Get In Touch
                 </Link>
@@ -99,7 +99,7 @@ export default function HeroSection() {
           <div ref={imageRef} className="md:col-span-2 flex justify-center motion-reveal motion-reveal-scalein group" style={{ animationDelay: '0.3s' }}>
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300">
               <Image
-                src="/images/96095 visa.jpg"
+                src="/images/96095 visa.jpg" 
                 alt={name}
                 width={384}
                 height={384}
