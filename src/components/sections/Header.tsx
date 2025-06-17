@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Briefcase, Code, Zap, MessageSquare, User, FileText, Award } from "lucide-react";
+import { Menu, Briefcase, Code, Zap, MessageSquare, User, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +12,6 @@ const navItems = [
   { href: "#skills", label: "Skills", icon: Zap },
   { href: "#projects", label: "Projects", icon: Code },
   { href: "#certifications", label: "Certifications", icon: Award },
-  { href: "#pitch", label: "Elevator Pitch", icon: FileText },
   { href: "#contact", label: "Contact", icon: MessageSquare },
 ];
 
