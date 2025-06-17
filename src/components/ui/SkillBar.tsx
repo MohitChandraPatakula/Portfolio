@@ -5,9 +5,10 @@ import { cn } from '@/lib/utils';
 interface SkillBarProps {
   name: string;
   level: number; // 0-100
+  animationDelay?: string;
 }
 
-export default function SkillBar({ name, level }: SkillBarProps) {
+export default function SkillBar({ name, level, animationDelay }: SkillBarProps) {
   const barRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -21,7 +22,7 @@ export default function SkillBar({ name, level }: SkillBarProps) {
             observer.unobserve(currentRef);
           }
         },
-        { threshold: 0.5 } // Trigger when 50% of the bar is visible
+        { threshold: 0.5 } 
       );
       observer.observe(currentRef);
       return () => {
@@ -33,16 +34,23 @@ export default function SkillBar({ name, level }: SkillBarProps) {
   }, []);
 
   return (
-    <div ref={barRef} className="mb-4 motion-reveal">
-      <div className="flex justify-between mb-1">
+    <div 
+      ref={barRef} 
+      className={cn(
+        "mb-4 motion-reveal motion-reveal-fadeinup",
+        isVisible ? "revealed" : ""
+      )}
+      style={{ animationDelay }}
+    >
+      <div className="flex justify-between mb-1.5">
         <span className="text-base font-medium text-primary dark:text-primary-foreground font-body">{name}</span>
-        <span className="text-sm font-medium text-primary dark:text-primary-foreground font-body">{level}%</span>
+        <span className="text-sm font-semibold text-accent dark:text-accent-foreground font-body">{level}%</span>
       </div>
-      <div className="w-full bg-secondary rounded-full h-4 dark:bg-muted">
+      <div className="w-full bg-secondary rounded-full h-5 dark:bg-muted shadow-inner overflow-hidden">
         <div
           className={cn(
-            "bg-accent h-4 rounded-full transition-all duration-[1500ms] ease-out",
-             isVisible ? "animate-fill-bar" : "w-0"
+            "bg-gradient-to-r from-primary to-accent h-5 rounded-full transition-all duration-[1500ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]",
+            isVisible ? "animate-fill-bar" : "w-0"
           )}
           style={{ '--skill-level': `${level}%` } as React.CSSProperties}
           role="progressbar"
