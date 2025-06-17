@@ -1,9 +1,11 @@
+
 "use client";
 import { resumeData } from "@/data/resume-data";
 import SkillBar from "@/components/ui/SkillBar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Layers } from "lucide-react";
 import { useEffect, useRef } from 'react';
+import { cn } from "@/lib/utils";
 
 export default function SkillsSection() {
   const { skills } = resumeData;
@@ -16,23 +18,22 @@ export default function SkillsSection() {
         (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              // Animate the section title and subtitle first if they exist and use motion-reveal
               const title = currentRef.querySelector('.section-title.motion-reveal');
               const subtitle = currentRef.querySelector('.section-subtitle.motion-reveal');
               if (title) title.classList.add('revealed');
               if (subtitle) subtitle.classList.add('revealed');
               
-              // Then animate the items
               const items = currentRef.querySelectorAll('.motion-reveal-item');
               items.forEach((item, index) => {
-                (item as HTMLElement).style.animationDelay = `${index * 100}ms`;
+                // Use transitionDelay for .motion-reveal-item as it uses CSS transitions
+                (item as HTMLElement).style.transitionDelay = `${index * 100}ms`;
                 item.classList.add('revealed');
               });
-              observer.unobserve(entry.target); // Unobserve after revealing to prevent re-triggering
+              observer.unobserve(entry.target); 
             }
           });
         },
-        { threshold: 0.1 } // Trigger when 10% of the section is visible
+        { threshold: 0.1 } 
       );
       observer.observe(currentRef);
       return () => {
@@ -55,8 +56,7 @@ export default function SkillsSection() {
           {skills.map((category, catIndex) => (
             <div 
               key={category.name} 
-              className="motion-reveal motion-reveal-item motion-reveal-fadeinup h-full"
-              // Staggering will be handled by the useEffect observer
+              className="motion-reveal-item h-full" // Simplified classes for card reveal
             >
               <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-transparent hover:border-primary/30 rounded-lg h-full flex flex-col group">
                 <CardHeader className="text-center">
@@ -71,8 +71,6 @@ export default function SkillsSection() {
                       key={skill.name} 
                       name={skill.name} 
                       level={skill.level || 80} 
-                      // SkillBar has its own observer, but animation delay can be kept for overall card reveal
-                      // animationDelay={`${(catIndex * 100) + (skillIndex * 50) + 200}ms`} // Add base delay for section reveal
                     />
                   ))}
                 </CardContent>

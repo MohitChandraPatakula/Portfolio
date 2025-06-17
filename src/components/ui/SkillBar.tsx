@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -5,7 +6,7 @@ import { cn } from '@/lib/utils';
 interface SkillBarProps {
   name: string;
   level: number; // 0-100
-  animationDelay?: string;
+  animationDelay?: string; // This prop is kept for potential future use but not directly used for fadeInUp here
 }
 
 export default function SkillBar({ name, level, animationDelay }: SkillBarProps) {
@@ -22,7 +23,7 @@ export default function SkillBar({ name, level, animationDelay }: SkillBarProps)
             observer.unobserve(currentRef);
           }
         },
-        { threshold: 0.1 } // Lowered threshold for earlier animation trigger
+        { threshold: 0.1 } 
       );
       observer.observe(currentRef);
       return () => {
@@ -37,12 +38,9 @@ export default function SkillBar({ name, level, animationDelay }: SkillBarProps)
     <div 
       ref={barRef} 
       className={cn(
-        "mb-4 motion-reveal motion-reveal-fadeinup",
-        // The 'revealed' class for fadeInUp is handled by its own animation logic if needed,
-        // but SkillBar's primary animation is the bar filling up.
-        // isVisible here mainly controls the bar fill animation.
+        "mb-4", // Removed motion-reveal and motion-reveal-fadeinup
       )}
-      style={{ animationDelay }} // This delay is for the fadeInUp effect of the whole SkillBar item
+      // style={{ animationDelay }} // Removed as motion-reveal-fadeinup is removed
     >
       <div className="flex justify-between mb-1.5">
         <span className="text-base font-medium text-primary dark:text-primary font-body">{name}</span>
