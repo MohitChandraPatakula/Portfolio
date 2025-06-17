@@ -64,7 +64,7 @@ export default function HeroSection() {
               {summary}
             </p>
             <div ref={buttonsRef} className="flex flex-wrap justify-center md:justify-start gap-4 mb-8 motion-reveal motion-reveal-fadeinup" style={{ animationDelay: '0.6s' }}>
-              <Button asChild variant="default" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:animate-none">
+              <Button asChild variant="default" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 <Link href="#projects">
                   <Download className="mr-2 h-5 w-5" /> View My Work
                 </Link>
@@ -98,12 +98,12 @@ export default function HeroSection() {
           <div ref={imageRef} className="md:col-span-2 flex justify-center motion-reveal motion-reveal-scalein" style={{ animationDelay: '0.3s' }}>
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300">
               <Image
-                src="https://placehold.co/400x400.png"
+                src="https://storage.googleapis.com/project-fabrica-dev/images/Y2hhdC1jb21wbGV0aW9uLWE2MDIxYzVjLWQ2ZTEtNGM5ZC1hYmFhLTk4ODAyZjdlNDdkMw==/image.png"
                 alt={name}
                 layout="fill"
                 objectFit="cover"
                 className="transform hover:scale-110 transition-transform duration-700 ease-in-out"
-                data-ai-hint="professional portrait"
+                data-ai-hint="profile picture"
                 priority
               />
             </div>
