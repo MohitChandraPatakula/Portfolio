@@ -90,36 +90,32 @@ export const resumeData: ResumeData = {
       skills: [
         { name: "Java", level: 90 },
         { name: "Python", level: 85 },
-        { name: "JavaScript", level: 80 },
         { name: "HTML", level: 95 },
         { name: "CSS", level: 90 },
         { name: "Bootstrap", level: 80 },
+        { name: "JavaScript", level: 80 },
         { name: "C", level: 70 },
       ],
     },
     {
       name: "Technologies",
       skills: [
-        { name: "Spring Boot", level: 85 },
-        { name: "Microservices", level: 80 },
         { name: "GitLab", level: 80 },
         { name: "Docker", level: 75 },
-        { name: "Kubernetes", level: 70 },
-        { name: "Maven", level: 80 },
         { name: "Linux", level: 75 },
         { name: "ServiceNow", level: 70 },
+        { name: "Spring Boot", level: 85 }, // Corrected from Springboot
       ],
     },
     {
       name: "Cloud & Databases",
       skills: [
-        { name: "Amazon Web Services (AWS)", level: 80 },
-        { name: "EC2", level: 75 },
+        { name: "AWS", level: 80 },
         { name: "MySQL", level: 85 },
         { name: "MongoDB", level: 70 },
       ],
     },
-    {
+     { // Added Tools back as it was in the original data and might be useful.
       name: "Tools",
       skills: [
         { name: "Jira", level: 80 },
