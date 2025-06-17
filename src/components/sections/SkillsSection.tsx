@@ -1,7 +1,7 @@
 
 "use client";
 import { resumeData } from "@/data/resume-data";
-import SkillBar from "@/components/ui/SkillBar";
+import SkillBar from "@/components/ui/SkillBar"; // Will render as a Badge
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Layers } from "lucide-react";
 import { useEffect, useRef } from 'react';
@@ -25,14 +25,15 @@ export default function SkillsSection() {
               
               const items = currentRef.querySelectorAll('.motion-reveal-item');
               items.forEach((item, index) => {
-                (item as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+                // Stagger the animation for category cards
+                (item as HTMLElement).style.transitionDelay = `${index * 150}ms`; 
                 item.classList.add('revealed');
               });
               observer.unobserve(entry.target); 
             }
           });
         },
-        { threshold: 0.1 } 
+        { threshold: 0.05 } // Lower threshold for section reveal
       );
       observer.observe(currentRef);
       return () => {
@@ -55,7 +56,8 @@ export default function SkillsSection() {
           {skills.map((category, catIndex) => (
             <div 
               key={category.name} 
-              className="motion-reveal-item h-full"
+              className="motion-reveal-item h-full" // Staggered reveal for cards
+              // transitionDelay is handled by the useEffect above based on index
             >
               <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-transparent hover:border-primary/30 rounded-lg h-full flex flex-col group">
                 <CardHeader className="text-center">
@@ -65,17 +67,15 @@ export default function SkillsSection() {
                   <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors duration-300">{category.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow pt-2">
-                  {/* Skills will be displayed as a list of names */}
-                  <ul className="space-y-1">
+                  <div className="flex flex-wrap gap-3 justify-center items-center py-2">
                     {category.skills.map((skill, skillIndex) => (
-                       <li key={skill.name} className="flex items-center">
-                         <SkillBar 
-                            name={skill.name} 
-                            level={skill.level || 0} // Level is not used for display but passed for consistency
-                          />
-                       </li>
+                       <SkillBar 
+                          key={skill.name} 
+                          name={skill.name}
+                          animationDelay={`${skillIndex * 75}ms`} // Stagger animation for skill badges
+                        />
                     ))}
-                  </ul>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -85,4 +85,3 @@ export default function SkillsSection() {
     </section>
   );
 }
-

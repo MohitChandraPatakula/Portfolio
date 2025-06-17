@@ -1,16 +1,17 @@
 
 "use client";
-import { useEffect, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
+import { useEffect, useRef } from 'react';
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 interface SkillBarProps {
   name: string;
-  level: number; // 0-100, kept in props for data consistency, but not used for display
+  level?: number; // Kept for data consistency, but not used for display
+  animationDelay?: string; 
 }
 
-export default function SkillBar({ name, level }: SkillBarProps) {
+export default function SkillBar({ name, animationDelay }: SkillBarProps) {
   const itemRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const currentRef = itemRef.current;
@@ -18,11 +19,11 @@ export default function SkillBar({ name, level }: SkillBarProps) {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(currentRef);
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
           }
         },
-        { threshold: 0.01 } // Lowered threshold
+        { threshold: 0.1 } 
       );
       observer.observe(currentRef);
       return () => {
@@ -34,17 +35,22 @@ export default function SkillBar({ name, level }: SkillBarProps) {
   }, []);
 
   return (
-    <div 
-      ref={itemRef} 
-      className={cn(
-        "mb-2 py-1", // Adjusted padding and margin
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
-        "transition-all duration-500 ease-out"
-      )}
+    <div
+      ref={itemRef}
+      className="motion-reveal motion-reveal-fadeinup" 
+      style={{ animationDelay: animationDelay || '0ms' }} 
     >
-      <span className="text-base font-medium text-primary dark:text-primary font-body">{name}</span>
-      {/* Percentage and bar elements removed */}
+      <Badge 
+        variant="secondary" 
+        className={cn(
+          "text-base font-medium py-2 px-4 rounded-md", 
+          "bg-accent/10 text-accent dark:bg-accent/20 dark:text-accent-foreground",
+          "hover:bg-accent/20 dark:hover:bg-accent/30",
+          "transition-all duration-300 ease-in-out transform hover:scale-110"
+        )}
+      >
+        {name}
+      </Badge>
     </div>
   );
 }
-
