@@ -101,9 +101,8 @@ export default function HeroSection() {
               <Image
                 src="https://storage.googleapis.com/project-fabrica-dev/images/Y2hhdC1jb21wbGV0aW9uLWE2MDIxYzVjLWQ2ZTEtNGM5ZC1hYmFhLTk4ODAyZjdlNDdkMw==/image.png"
                 alt={name}
-                width={384} 
-                height={384} 
-                className="object-cover w-full h-full"
+                width={384}
+                height={384}
                 data-ai-hint="profile picture"
                 priority
               />
