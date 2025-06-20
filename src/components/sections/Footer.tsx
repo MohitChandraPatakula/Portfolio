@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { resumeData } from "@/data/resume-data";
 import { Github, Linkedin, Mail } from "lucide-react";
@@ -13,7 +14,6 @@ export default function Footer() {
           
           <div className="text-center md:text-left text-sm text-muted-foreground"> {/* Adjusted for potentially 2-col layout */}
             <p>&copy; {currentYear} {name}. All rights reserved.</p>
-            <p>Crafted with <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent underline">Next.js</Link> & <Link href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent underline">Tailwind CSS</Link>.</p>
           </div>
 
           <div className="flex justify-center md:justify-end space-x-6">
