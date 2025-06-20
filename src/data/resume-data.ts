@@ -188,7 +188,7 @@ export const resumeData: ResumeData = {
       description: "Designed and developed a comprehensive portal for pension disbursement, ensuring seamless user interaction and efficient data handling.",
       technologies: ["Java", "Spring Framework", "HTML", "CSS", "Angular", "AWS", "Spring Tool Suite", "VS Code"],
       imageUrl: "https://placehold.co/600x400.png",
-      dataAiHint: "system management",
+      dataAiHint: "system interface",
       details: [
         "Implemented backend functionality using Java (Spring Framework) for secure and robust operations.",
         "Developed an intuitive and responsive user interface with HTML, CSS, and Angular, enhancing the user experience.",
