@@ -75,7 +75,7 @@ export default function HeroSection() {
                   <Download className="mr-2 h-5 w-5" /> View My Resume
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-primary/50 hover:bg-primary/10 hover:animate-pulseGlow">
+              <Button asChild variant="outline" size="lg" className="shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-primary/50 hover:bg-primary hover:text-primary-foreground hover:animate-pulseGlow">
                 <Link href="#contact">
                   Get In Touch
                 </Link>
