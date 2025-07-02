@@ -1,4 +1,3 @@
-
 "use client";
 import { resumeData } from "@/data/resume-data";
 import SkillBar from "@/components/ui/SkillBar"; // Will render as a Badge
@@ -64,9 +63,9 @@ export default function SkillsSection() {
                   <div className="inline-block p-3 bg-primary/10 rounded-full mb-3 group-hover:bg-accent/10 transition-colors duration-300">
                      <Layers className="h-8 w-8 text-primary group-hover:text-accent transition-colors duration-300" />
                   </div>
+                  <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors duration-300">{category.name}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow pt-0 text-center">
-                  <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors duration-300 mb-4">{category.name}</CardTitle>
+                <CardContent className="flex-grow pt-4 text-center">
                   <div className="flex flex-wrap gap-3 justify-center items-center py-2">
                     {category.skills.map((skill, skillIndex) => (
                        <SkillBar 
