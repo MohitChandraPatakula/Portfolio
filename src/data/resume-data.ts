@@ -137,7 +137,6 @@ export const resumeData: ResumeData = {
         "Developed and integrated new features and functionalities to meet business requirements using Spring Boot and microservices architecture.",
         "Analyzed legacy codebases to design and implement enhancements for the new project while ensuring backward compatibility.",
         "Created RESTful APIs to support seamless integration with front-end applications, leveraging modern frameworks and best practices.",
-        "Utilized JUnit and Mockito to develop and execute comprehensive unit tests, ensuring robustness and correctness of application logic.",
         "Collaborated with the team to resolve code quality issues flagged by SonarQube and actively contributed to CI/CD pipeline setup for automated build and deployment.",
         "Participated in peer code reviews to uphold coding standards and incorporated feedback to improve code quality, contributing to on-time project delivery.",
       ],
