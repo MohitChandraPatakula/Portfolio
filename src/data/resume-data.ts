@@ -216,7 +216,7 @@ export const resumeData: ResumeData = {
     { name: "AWS-Certified Data Engineer- Associate" },
     { name: "ServiceNow- Certified System Administrator" },
     { name: "Certiport- Microsoft Technology Associate (MTA)" },
-    { name: "LinkedIn- Advanced NLP with Python for Machine Learning", year: "2020" },
+    { name: "LinkedIn- Advanced NLP with Python for Machine Learning" },
     { name: "Coursera- Machine Learning Specialization" },
   ],
 };
