@@ -60,13 +60,13 @@ export default function SkillsSection() {
               // transitionDelay is handled by the useEffect above based on index
             >
               <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-transparent hover:border-primary/30 rounded-lg h-full flex flex-col group">
-                <CardHeader className="text-center">
+                <CardHeader className="text-center pb-4">
                   <div className="inline-block p-3 bg-primary/10 rounded-full mb-3 group-hover:bg-accent/10 transition-colors duration-300">
                      <Layers className="h-8 w-8 text-primary group-hover:text-accent transition-colors duration-300" />
                   </div>
-                  <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors duration-300">{category.name}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow pt-2">
+                <CardContent className="flex-grow pt-0 text-center">
+                  <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors duration-300 mb-4">{category.name}</CardTitle>
                   <div className="flex flex-wrap gap-3 justify-center items-center py-2">
                     {category.skills.map((skill, skillIndex) => (
                        <SkillBar 
