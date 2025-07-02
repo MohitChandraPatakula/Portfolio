@@ -115,18 +115,6 @@ export const resumeData: ResumeData = {
         { name: "MongoDB", level: 70 },
       ],
     },
-     { // Added Tools back as it was in the original data and might be useful.
-      name: "Tools",
-      skills: [
-        { name: "Jira", level: 80 },
-        { name: "Confluence", level: 75 },
-        { name: "Postman", level: 85 },
-        { name: "GitHub", level: 90 },
-        { name: "JUnit", level: 80 },
-        { name: "Mockito", level: 75 },
-        { name: "SonarQube", level: 70 },
-      ]
-    }
   ],
   experience: [
     {
