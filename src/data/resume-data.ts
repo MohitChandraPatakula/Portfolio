@@ -188,7 +188,7 @@ export const resumeData: ResumeData = {
     {
       name: "Bird Species Identification from an Image",
       year: "2021",
-      description: "Ddeveloped a Python-based image classification system using Convolutional Neural Networks (CNNs) to identify bird species from images.",
+      description: "Developed a Python-based image classification system using Convolutional Neural Networks (CNNs) to identify bird species from images.",
       technologies: ["Python", "CNNs", "Jupyter Notebook", "Image Processing APIs"],
       imageUrl: "./images/bird.png",
       dataAiHint: "bird nature",
