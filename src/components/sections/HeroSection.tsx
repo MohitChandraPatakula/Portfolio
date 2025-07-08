@@ -106,7 +106,7 @@ export default function HeroSection() {
               <DialogTrigger asChild>
                 <div className="group relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-primary/30 hover:border-primary/70 transition-all duration-300 cursor-pointer">
                   <Image
-                    src="/images/96095 visa.jpg"
+                    src="MohitChandraPatakula/Portfolio/public/images/96095 visa.jpg"
                     alt={name}
                     width={384}
                     height={384}
